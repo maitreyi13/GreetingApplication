@@ -31,4 +31,10 @@ public class GreetingApp {
     public String serviceCall(){
         return service.helloWorld();
     }
+    //Ability for the Greeting App to give Greeting message
+    @GetMapping("/user")
+    public String greetMessageWithUser(@RequestParam(value = "firstName", defaultValue = "") String firstName,
+                                       @RequestParam(value = "lastName", defaultValue = "") String lastName) {
+        return service.greetMessageWithUser(firstName, lastName);
+    }
 }
