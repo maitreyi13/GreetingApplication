@@ -3,6 +3,7 @@ import com.greetingapplication.model.GreetEntity;
 import com.greetingapplication.repository.Repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 @Service
 public class ServiceClass {
@@ -25,5 +26,8 @@ public class ServiceClass {
     public GreetEntity saveMessage(GreetEntity greetings) {
         repository.save(greetings);
         return greetings;
+    }
+    public Optional<GreetEntity> findById(int id) {
+        return repository.findById(id);
     }
 }
