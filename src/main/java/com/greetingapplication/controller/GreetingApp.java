@@ -1,4 +1,5 @@
 package com.greetingapplication.controller;
+import com.greetingapplication.model.GreetEntity;
 import com.greetingapplication.service.ServiceClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,5 +37,10 @@ public class GreetingApp {
     public String greetMessageWithUser(@RequestParam(value = "firstName", defaultValue = "") String firstName,
                                        @RequestParam(value = "lastName", defaultValue = "") String lastName) {
         return service.greetMessageWithUser(firstName, lastName);
+    }
+    @PostMapping("/post")
+    public GreetEntity addGreeting(@RequestBody GreetEntity greetings) {
+        service.saveMessage(greetings);
+        return greetings;
     }
 }
