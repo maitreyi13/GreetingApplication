@@ -3,6 +3,8 @@ import com.greetingapplication.model.GreetEntity;
 import com.greetingapplication.service.ServiceClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -47,5 +49,10 @@ public class GreetingApp {
     @GetMapping("/greetById/{id}")
     public Optional<GreetEntity> greetById(@PathVariable int id){
         return service.findById(id);
+    }
+    //get all the data
+    @GetMapping("/allGreetings")
+    public List<GreetEntity> findAllGreetings() {
+        return service.findAllGreet();
     }
 }
