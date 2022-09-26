@@ -2,54 +2,28 @@ package com.greetingapplication.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
 @Entity
 public class GreetEntity {
-    String firstName;
-    String lastName;
     @Id
     @GeneratedValue
-    private int id;
-
-    public GreetEntity(GreetEntity greetings)
-    {
-        this.firstName = greetings.firstName;
-        this.lastName = greetings.lastName;
-
+    private Long id;
+    private String message;
+    public GreetEntity(Long id, String message) {
+        this.id = id;
+        this.message = message;
     }
-    public GreetEntity()
-    {
-
+    public GreetEntity() {
     }
-
-    public String getFirstName()
-    {
-        return firstName;
+    public Long getId() {
+        return id;
     }
-
-    public void setFirstName(String firstName)
-    {
-        this.firstName = firstName;
-    }
-
-    public String getLastName()
-    {
-        return lastName;
-    }
-
-    public void setLastName(String lastName)
-    {
-        this.lastName = lastName;
-    }
-
-    public void setId(int id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
-
-
-    public int getId()
-    {
-        return id;
+    public String getMessage() {
+        return message;
+    }
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

@@ -55,4 +55,10 @@ public class GreetingApp {
     public List<GreetEntity> findAllGreetings() {
         return service.findAllGreet();
     }
+    //Edit the data
+
+    @PutMapping("/editGreet/{id}")
+    public GreetEntity editGreeting(@RequestBody GreetEntity greeting, @PathVariable int id) {
+        return service.editGreeting(greeting, id);
+    }
 }
