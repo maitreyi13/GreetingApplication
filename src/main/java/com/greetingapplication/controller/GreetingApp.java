@@ -61,4 +61,9 @@ public class GreetingApp {
     public GreetEntity editGreeting(@RequestBody GreetEntity greeting, @PathVariable int id) {
         return service.editGreeting(greeting, id);
     }
+    @DeleteMapping("/deleteGreet/{id}")
+    public String deleteGreeting(@PathVariable int id) {
+        service.deleteGreeting(id);
+        return "Message Deleted";
+    }
 }
